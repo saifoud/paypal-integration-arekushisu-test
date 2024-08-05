@@ -8,39 +8,23 @@
     <style>
         body {
             margin: 0;
-            padding: 0;
+            padding: 20px;
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
         }
-        #paypal-container {
-            width: 100%;
-            max-width: 400px;
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            box-sizing: border-box;
+        #paypal-button-container {
             text-align: center;
         }
-        #paypal-button-container, #paypal-message-container {
-            width: 100%;
-        }
-        h2 {
-            margin-bottom: 20px;
-            font-size: 1.5em;
+        #paypal-message-container {
+            text-align: center;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <div id="paypal-container">
-        <h2>Payer avec PayPal</h2>
-        <div id="paypal-button-container"></div>
-        <div id="paypal-message-container"></div>
-    </div>
+    <h2 style="text-align: center;">Payer avec PayPal</h2>
+    <div id="paypal-button-container"></div>
+    <div id="paypal-message-container"></div>
 
     <script>
         paypal.Buttons({
