@@ -39,23 +39,28 @@
             letter-spacing: .15em; /* Espacement entre les lettres */
         }
         .image-container {
-            margin: 0 auto 30px; /* Marge inférieure pour séparer l'image du texte */
-            max-width: 90%; /* Largeur maximale de l'image */
+            margin: 30px auto 0; /* Marge de 30px en haut pour séparer l'image du reste du contenu */
+            width: 50px; /* Largeur fixe du logo */
+            height: 50px; /* Hauteur fixe du logo */
+            display: flex;
+            justify-content: center; /* Centre l'image horizontalement */
+            align-items: center; /* Centre l'image verticalement */
         }
         .image-container img {
             width: 100%; /* L'image prend toute la largeur du conteneur */
-            height: auto; /* Conserver les proportions de l'image */
+            height: 100%; /* L'image prend toute la hauteur du conteneur */
+            object-fit: cover; /* Conserve les proportions de l'image sans la déformer */
         }
     </style>
 </head>
 <body>
-    <!-- Image ajoutée ici -->
-    <div class="image-container">
-        <img src="https://via.placeholder.com/800x400" alt="Description de l'image">
-    </div>
-
     <h2>Arekushisu</h2>
     <div id="paypal-button-container"></div>
+
+    <!-- Image ajoutée ici -->
+    <div class="image-container">
+        <img src="https://via.placeholder.com/50" alt="Logo">
+    </div>
 
     <script>
         // Configuration des boutons PayPal
