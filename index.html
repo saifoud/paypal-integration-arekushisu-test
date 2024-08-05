@@ -45,26 +45,26 @@
             background-color: rgba(0, 0, 0, 0.4); /* Fond semi-transparent */
         }
         .modal-content {
-            background-color: #fff;
+            background-color: #fff; /* Fond blanc pour le contenu de la fenêtre modale */
             margin: 15% auto;
             padding: 20px;
-            border: 2px solid #0070ba; /* Bordure bleue autour de la fenêtre modale */
+            border: none; /* Suppression de la bordure */
             border-radius: 8px; /* Coins arrondis pour un look moderne */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre portée pour un effet de profondeur */
             width: 80%;
             max-width: 500px;
         }
         .close {
-            color: #aaa;
+            color: #0070ba; /* Couleur du bouton de fermeture */
             float: right;
             font-size: 28px;
             font-weight: bold;
+            cursor: pointer;
         }
         .close:hover,
         .close:focus {
-            color: #000;
+            color: #005c9b; /* Couleur du bouton de fermeture au survol */
             text-decoration: none;
-            cursor: pointer;
         }
     </style>
 </head>
