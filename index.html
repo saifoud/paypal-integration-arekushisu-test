@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payer avec PayPal</title>
+    <title>Arekushisu</title>
     <script src="https://www.paypal.com/sdk/js?client-id=AaqwTRkfB_51SelAteGV9wbReP__9kwPdDrqX1FZ2SFW331erUhy888-8SJSZTAb8mew1TW0CQsxQj3R&components=buttons,messages&currency=EUR&enable-funding=paylater"></script>
 
     <!-- Ajouter le lien vers la police -->
@@ -23,14 +23,14 @@
             border-radius: 8px; /* Coins arrondis pour un look moderne */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre portée pour un effet de profondeur */
             padding: 20px; /* Espace interne */
-            margin: 10px auto 0; /* Marge de 10px en haut pour la séparation */
+            margin: 30px auto 0; /* Marge de 10px en haut pour la séparation */
             display: inline-block; /* Pour que la bordure s'ajuste au contenu */
             max-width: 90vw; /* Largeur maximale en fonction de la vue */
             width: 100%; /* Pour s'adapter à la largeur de l'écran */
             box-sizing: border-box; /* Inclut les bordures et le padding dans la largeur totale */
         }
         h2 {
-            margin-bottom: 10px; /* Marge inférieure de 10px pour séparer le texte des boutons */
+            margin-bottom: 30px; /* Marge inférieure de 10px pour séparer le texte des boutons */
             color: #333;
             font-family: 'Instrumentsans', sans-serif; /* Utiliser la police spécifiée */
             overflow: hidden; /* Assure que le texte est masqué au début */
@@ -79,7 +79,7 @@
             textElement.textContent = ''; // Effacer le contenu du texte pour commencer l'effet de machine à écrire
 
             let index = 0;
-            const typingSpeed = 230; // Vitesse de la frappe en millisecondes
+            const typingSpeed = 500; // Vitesse de la frappe en millisecondes
 
             function typeWriter() {
                 if (index < text.length) {
