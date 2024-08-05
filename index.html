@@ -23,14 +23,14 @@
             border-radius: 8px; /* Coins arrondis pour un look moderne */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre portée pour un effet de profondeur */
             padding: 20px; /* Espace interne */
-            margin: 0 auto;
+            margin: 10px auto 0; /* Marge de 10px en haut pour la séparation */
             display: inline-block; /* Pour que la bordure s'ajuste au contenu */
             max-width: 90vw; /* Largeur maximale en fonction de la vue */
             width: 100%; /* Pour s'adapter à la largeur de l'écran */
             box-sizing: border-box; /* Inclut les bordures et le padding dans la largeur totale */
         }
         h2 {
-            margin-bottom: 20px;
+            margin-bottom: 10px; /* Marge inférieure de 10px pour séparer le texte des boutons */
             color: #333;
             font-family: 'Instrumentsans', sans-serif; /* Utiliser la police spécifiée */
             overflow: hidden; /* Assure que le texte est masqué au début */
@@ -41,7 +41,7 @@
     </style>
 </head>
 <body>
-    <h2>Payer avec PayPal</h2> <br />
+    <h2>Payer avec PayPal</h2>
     <div id="paypal-button-container"></div>
 
     <script>
