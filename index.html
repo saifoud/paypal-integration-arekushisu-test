@@ -16,49 +16,22 @@
             align-items: center;
             height: 100vh;
         }
-
         #paypal-container {
-            width: 90%;
-            max-width: 600px; /* Largeur maximale du conteneur */
+            width: 100%;
+            max-width: 400px;
             background-color: #fff;
-            padding: 20px; /* Padding ajusté pour la réactivité */
+            padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             box-sizing: border-box;
             text-align: center;
         }
-
-        #paypal-button-container {
+        #paypal-button-container, #paypal-message-container {
             width: 100%;
-            margin: 20px 0; /* Marge autour du bouton PayPal */
         }
-
-        #paypal-message-container {
-            width: 100%;
-            margin-top: 20px; /* Marge au-dessus du message PayPal */
-        }
-
         h2 {
             margin-bottom: 20px;
-            font-size: 1.5em; /* Taille de police responsive */
-        }
-
-        /* Ajustements pour les petits écrans */
-        @media (max-width: 600px) {
-            #paypal-container {
-                padding: 15px; /* Réduit le padding sur les petits écrans */
-            }
-
-            h2 {
-                font-size: 1.2em; /* Réduit la taille du titre pour les petits écrans */
-            }
-
-            /* Ajustement de l'échelle des boutons PayPal */
-            .paypal-buttons iframe {
-                transform: scale(1); /* Réinitialise l'échelle pour une meilleure réactivité */
-                width: 100% !important;
-                height: auto !important;
-            }
+            font-size: 1.5em;
         }
     </style>
 </head>
