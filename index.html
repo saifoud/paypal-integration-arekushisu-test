@@ -3,64 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payer avec PayPal</title>
-    <script src="https://www.paypal.com/sdk/js?client-id=AaqwTRkfB_51SelAteGV9wbReP__9kwPdDrqX1FZ2SFW331erUhy888-8SJSZTAb8mew1TW0CQsxQj3R&components=buttons,messages&currency=EUR&enable-funding=paylater"></script>
+    <title>Iframe Responsive avec Zoom Ajusté</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        #paypal-container {
+        /* Conteneur responsive pour l'iframe */
+        .iframe-container {
+            position: relative;
             width: 100%;
-            max-width: 400px;
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            box-sizing: border-box;
-            text-align: center;
+            padding-bottom: 56.25%; /* Ratio 16:9 */
+            height: 0;
+            overflow: hidden;
         }
-        #paypal-button-container, #paypal-message-container {
+
+        /* Style pour l'iframe avec ajustement de l'échelle */
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-        }
-        h2 {
-            margin-bottom: 20px;
-            font-size: 1.5em;
+            height: 100%;
+            border: 0;
+            transform: scale(0.8); /* Ajuster l'échelle ici */
+            transform-origin: 0 0; /* Maintient l'origine de transformation */
         }
     </style>
 </head>
 <body>
-    <div id="paypal-container">
-        <h2>Payer avec PayPal</h2>
-        <div id="paypal-button-container"></div>
-        <div id="paypal-message-container"></div>
+    <div class="iframe-container">
+        <iframe src="https://saifoud.github.io/paypal-integration-arekushisu/index.html" frameborder="0" allowfullscreen></iframe>
     </div>
-
-    <script>
-        paypal.Buttons({
-            createOrder: function(data, actions) {
-                return actions.order.create({
-                    purchase_units: [{
-                        amount: {
-                            value: '35.00' // Utilisation du point comme séparateur décimal
-                        }
-                    }]
-                });
-            },
-            onApprove: function(data, actions) {
-                return actions.order.capture().then(function(details) {
-                    alert('Transaction effectuée avec succès par ' + details.payer.name.given_name);
-                });
-            }
-        }).render('#paypal-button-container');
-
-        paypal.Messages().render('#paypal-message-container');
-    </script>
 </body>
 </html>
