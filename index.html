@@ -15,14 +15,15 @@
         }
         #paypal-button-container {
             background-color: #fff;
-            border: 2px solid #0070ba; /* Bordure bleue autour des conteneurs */
+            border: 2px solid #0070ba; /* Bordure bleue autour du conteneur */
             border-radius: 8px; /* Coins arrondis pour un look moderne */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre portée pour un effet de profondeur */
-            padding: 40px; /* Augmenter le padding pour plus d'espace à l'intérieur du conteneur */
+            padding: 20px; /* Espace interne */
             margin: 0 auto;
             display: inline-block; /* Pour que la bordure s'ajuste au contenu */
-            max-width: 350px; /* Largeur maximale du conteneur */
-            width: 100%; /* Pour que le conteneur s'adapte à la largeur de l'écran */
+            max-width: 90vw; /* Largeur maximale en fonction de la vue */
+            width: 100%; /* Pour s'adapter à la largeur de l'écran */
+            box-sizing: border-box; /* Inclut les bordures et le padding dans la largeur totale */
         }
         h2 {
             margin-bottom: 20px;
