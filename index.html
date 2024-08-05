@@ -19,9 +19,9 @@
 
         #paypal-container {
             width: 90%;
-            max-width: 600px; /* Augmenté pour plus de largeur */
+            max-width: 600px; /* Largeur maximale du conteneur */
             background-color: #fff;
-            padding: 30px; /* Augmenté pour plus de padding */
+            padding: 20px; /* Padding ajusté pour la réactivité */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             box-sizing: border-box;
@@ -30,25 +30,35 @@
 
         #paypal-button-container {
             width: 100%;
-            margin: 20px 0; /* Ajouté pour plus d'espace autour du bouton */
+            margin: 20px 0; /* Marge autour du bouton PayPal */
         }
 
         #paypal-message-container {
             width: 100%;
-            margin-top: 20px; /* Ajouté pour espacer le message */
+            margin-top: 20px; /* Marge au-dessus du message PayPal */
         }
 
         h2 {
-            margin-bottom: 30px; /* Augmenté pour plus d'espace sous le titre */
-            font-size: 2em; /* Augmenté pour un titre plus grand */
+            margin-bottom: 20px;
+            font-size: 1.5em; /* Taille de police responsive */
         }
 
-        /* Ajustement des boutons PayPal */
-        .paypal-buttons iframe {
-            transform: scale(1.2); /* Ajuste l'échelle des boutons PayPal */
-            transform-origin: 0 0; /* Garde le coin supérieur gauche comme origine de transformation */
-            width: 100% !important; /* Assure que les boutons remplissent la largeur du conteneur */
-            height: auto !important; /* Ajuste la hauteur automatiquement */
+        /* Ajustements pour les petits écrans */
+        @media (max-width: 600px) {
+            #paypal-container {
+                padding: 15px; /* Réduit le padding sur les petits écrans */
+            }
+
+            h2 {
+                font-size: 1.2em; /* Réduit la taille du titre pour les petits écrans */
+            }
+
+            /* Ajustement de l'échelle des boutons PayPal */
+            .paypal-buttons iframe {
+                transform: scale(1); /* Réinitialise l'échelle pour une meilleure réactivité */
+                width: 100% !important;
+                height: auto !important;
+            }
         }
     </style>
 </head>
