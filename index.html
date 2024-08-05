@@ -11,18 +11,31 @@
             padding: 20px;
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
+            text-align: center;
+        }
+        #paypal-button-container, #paypal-message-container {
+            background-color: #fff;
+            border: 2px solid #0070ba; /* Bordure bleue autour des conteneurs */
+            border-radius: 8px; /* Coins arrondis pour un look moderne */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre portée pour un effet de profondeur */
+            padding: 20px;
+            margin: 0 auto;
+            display: inline-block; /* Pour que la bordure s'ajuste au contenu */
         }
         #paypal-button-container {
-            text-align: center;
+            margin-top: 20px;
         }
         #paypal-message-container {
-            text-align: center;
             margin-top: 20px;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
         }
     </style>
 </head>
 <body>
-    <h2 style="text-align: center;">Payer avec PayPal</h2>
+    <h2>Payer avec PayPal</h2>
     <div id="paypal-button-container"></div>
     <div id="paypal-message-container"></div>
 
