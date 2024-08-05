@@ -16,22 +16,39 @@
             align-items: center;
             height: 100vh;
         }
+
         #paypal-container {
-            width: 100%;
-            max-width: 400px;
+            width: 90%;
+            max-width: 600px; /* Augmenté pour plus de largeur */
             background-color: #fff;
-            padding: 20px;
+            padding: 30px; /* Augmenté pour plus de padding */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             box-sizing: border-box;
             text-align: center;
         }
-        #paypal-button-container, #paypal-message-container {
+
+        #paypal-button-container {
             width: 100%;
+            margin: 20px 0; /* Ajouté pour plus d'espace autour du bouton */
         }
+
+        #paypal-message-container {
+            width: 100%;
+            margin-top: 20px; /* Ajouté pour espacer le message */
+        }
+
         h2 {
-            margin-bottom: 20px;
-            font-size: 1.5em;
+            margin-bottom: 30px; /* Augmenté pour plus d'espace sous le titre */
+            font-size: 2em; /* Augmenté pour un titre plus grand */
+        }
+
+        /* Ajustement des boutons PayPal */
+        .paypal-buttons iframe {
+            transform: scale(1.2); /* Ajuste l'échelle des boutons PayPal */
+            transform-origin: 0 0; /* Garde le coin supérieur gauche comme origine de transformation */
+            width: 100% !important; /* Assure que les boutons remplissent la largeur du conteneur */
+            height: auto !important; /* Ajuste la hauteur automatiquement */
         }
     </style>
 </head>
