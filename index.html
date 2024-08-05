@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iframe Responsive avec Zoom Ajusté</title>
+    <title>Iframe Responsive</title>
     <style>
-        /* Conteneur responsive pour l'iframe */
+        /* Style pour rendre l'iframe responsive */
         .iframe-container {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* Ratio 16:9 */
+            padding-bottom: 56.25%; /* Ratio 16:9 (hauteur / largeur * 100) */
             height: 0;
             overflow: hidden;
         }
-
-        /* Style pour l'iframe avec ajustement de l'échelle */
+        
         .iframe-container iframe {
             position: absolute;
             top: 0;
@@ -22,8 +21,6 @@
             width: 100%;
             height: 100%;
             border: 0;
-            transform: scale(0.8); /* Ajuster l'échelle ici */
-            transform-origin: 0 0; /* Maintient l'origine de transformation */
         }
     </style>
 </head>
