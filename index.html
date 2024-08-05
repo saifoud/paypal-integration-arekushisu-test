@@ -28,6 +28,21 @@
         h2 {
             margin-bottom: 20px;
             color: #333;
+            font-family: 'Courier New', Courier, monospace; /* Utiliser une police à espacement fixe */
+            overflow: hidden; /* Assure que le texte est masqué au début */
+            border-right: .15em solid orange; /* Création d'un curseur de machine à écrire */
+            white-space: nowrap; /* Empêche le texte de passer à la ligne suivante */
+            margin: 0 auto; /* Centre le texte */
+            letter-spacing: .15em; /* Espacement entre les lettres */
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite; /* Animation du texte */
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: orange; }
         }
     </style>
 </head>
