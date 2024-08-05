@@ -45,7 +45,7 @@
             background-color: rgba(0, 0, 0, 0.4); /* Fond semi-transparent */
         }
         .modal-content {
-            background-color: #fff;
+            background-color: #fff; /* Fond blanc pour le contenu de la fenêtre modale */
             margin: 15% auto;
             padding: 20px;
             border: 2px solid #0070ba; /* Bordure bleue autour de la fenêtre modale */
@@ -53,18 +53,6 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre portée pour un effet de profondeur */
             width: 80%;
             max-width: 500px;
-        }
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .close:hover,
-        .close:focus {
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
         }
     </style>
 </head>
@@ -76,7 +64,6 @@
     <!-- La fenêtre modale -->
     <div id="myModal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
             <p id="modal-message">Transaction effectuée avec succès !</p>
         </div>
     </div>
@@ -97,16 +84,10 @@
                 return actions.order.capture().then(function(details) {
                     // Afficher la fenêtre modale avec un message de succès
                     var modal = document.getElementById('myModal');
-                    var span = document.getElementsByClassName('close')[0];
                     var message = document.getElementById('modal-message');
                     
                     message.textContent = 'Transaction effectuée avec succès par ' + details.payer.name.given_name;
                     modal.style.display = 'block';
-
-                    // Fermer la fenêtre modale lorsque l'utilisateur clique sur "X"
-                    span.onclick = function() {
-                        modal.style.display = 'none';
-                    }
 
                     // Fermer la fenêtre modale lorsque l'utilisateur clique en dehors de la fenêtre modale
                     window.onclick = function(event) {
