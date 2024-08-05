@@ -28,6 +28,13 @@
             max-width: 90vw; /* Largeur maximale en fonction de la vue */
             width: 100%; /* Pour s'adapter à la largeur de l'écran */
             box-sizing: border-box; /* Inclut les bordures et le padding dans la largeur totale */
+            transform: scale(0); /* État initial réduit */
+            opacity: 0; /* État initial invisible */
+            transition: transform 0.5s ease, opacity 0.5s ease; /* Transition fluide */
+        }
+        #paypal-button-container.show {
+            transform: scale(1); /* État final normal */
+            opacity: 1; /* État final visible */
         }
         h2 {
             margin-bottom: 30px; /* Marge inférieure de 30px pour séparer le texte des boutons */
@@ -59,7 +66,7 @@
 
     <!-- Image ajoutée ici -->
     <div class="image-container">
-        <img src="arekushisu.jpg" alt="Logo ">
+        <img src="arekushisu.jpg" alt="Logo">
     </div>
 
     <script>
@@ -78,6 +85,10 @@
                 return actions.order.capture().then(function(details) {
                     alert('Transaction effectuée avec succès par ' + details.payer.name.given_name);
                 });
+            },
+            onRender: function() {
+                // Ajoute la classe 'show' après que les boutons PayPal sont rendus
+                document.getElementById('paypal-button-container').classList.add('show');
             }
         }).render('#paypal-button-container');
     </script>
