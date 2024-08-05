@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payer avec PayPal</title>
     <script src="https://www.paypal.com/sdk/js?client-id=AaqwTRkfB_51SelAteGV9wbReP__9kwPdDrqX1FZ2SFW331erUhy888-8SJSZTAb8mew1TW0CQsxQj3R&components=buttons,messages&currency=EUR&enable-funding=paylater"></script>
+
+    <!-- Ajouter le lien vers la police -->
+    <link href="https://fonts.googleapis.com/css2?family=Instrumentsans:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
         body {
             margin: 0;
@@ -28,7 +32,7 @@
         h2 {
             margin-bottom: 20px;
             color: #333;
-            font-family: 'Courier New', Courier, monospace; /* Utiliser une police à espacement fixe */
+            font-family: 'Instrumentsans', sans-serif; /* Utiliser la police spécifiée */
             overflow: hidden; /* Assure que le texte est masqué au début */
             white-space: nowrap; /* Empêche le texte de passer à la ligne suivante */
             margin: 0 auto; /* Centre le texte */
@@ -72,10 +76,10 @@
             }
 
             const text = textElement.textContent;
-            textElement.textContent = ''; // Clear the text content to start typing effect
+            textElement.textContent = ''; // Effacer le contenu du texte pour commencer l'effet de machine à écrire
 
             let index = 0;
-            const typingSpeed = 230; // Speed of typing in milliseconds
+            const typingSpeed = 230; // Vitesse de la frappe en millisecondes
 
             function typeWriter() {
                 if (index < text.length) {
@@ -85,7 +89,7 @@
                 }
             }
 
-            typeWriter(); // Start the typing effect
+            typeWriter(); // Démarrer l'effet de machine à écrire
         });
     </script>
 </body>
