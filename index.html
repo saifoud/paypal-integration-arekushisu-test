@@ -137,6 +137,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
         }
         .status-icon {
             width: 24px;
@@ -159,7 +162,7 @@
     <h2>Arekushisu</h2>
 
     <div class="underline-container">
-        <div class="word">Single Portrait</div>
+        <div class="word">Underlined Name</div>
         <div class="underline-mirror"></div>
         <div class="underline"></div>
     </div>
@@ -218,7 +221,7 @@
                 amount = baseAmount + 50.00; // Add $50
                 successIcon.classList.add('hidden');
                 errorIcon.classList.remove('hidden');
-                statusMessage.textContent = 'Colored Version: Colored Version Added';
+                statusMessage.textContent = 'Colored Version: Added';
             } else {
                 amount = baseAmount; // Reset to base amount
                 successIcon.classList.remove('hidden');
