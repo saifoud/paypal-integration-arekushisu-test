@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arekushisu - Pay with Paypal</title>
+    <title>Arekushisu - Pay with PayPal</title>
     <script src="https://www.paypal.com/sdk/js?client-id=AaqwTRkfB_51SelAteGV9wbReP__9kwPdDrqX1FZ2SFW331erUhy888-8SJSZTAb8mew1TW0CQsxQj3R&components=buttons,messages&currency=USD&enable-funding=paylater"></script>
-
-    <!-- Ajouter le lien vers la police -->
     <link href="https://fonts.googleapis.com/css2?family=Instrumentsans:wght@400;700&display=swap" rel="stylesheet">
-
     <style>
         body {
             margin: 0;
@@ -19,53 +16,49 @@
         }
         #paypal-button-container {
             background-color: #fff;
-            border: 2px solid #0070ba; /* Bordure bleue autour du conteneur */
-            border-radius: 8px; /* Coins arrondis pour un look moderne */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre portée pour un effet de profondeur */
-            padding: 20px; /* Espace interne */
-            margin: 30px auto 0; /* Marge de 30px en haut pour la séparation */
-            display: inline-block; /* Pour que la bordure s'ajuste au contenu */
-            max-width: 90vw; /* Largeur maximale en fonction de la vue */
-            width: 100%; /* Pour s'adapter à la largeur de l'écran */
-            box-sizing: border-box; /* Inclut les bordures et le padding dans la largeur totale */
+            border: 2px solid #0070ba;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 30px auto 0;
+            display: inline-block;
+            max-width: 90vw;
+            width: 100%;
+            box-sizing: border-box;
         }
         h2 {
-            margin-bottom: 20px; /* Marge inférieure de 20px pour séparer le texte souligné du titre */
+            margin-bottom: 20px;
             color: #333;
-            font-family: 'Instrumentsans', sans-serif; /* Utiliser la police spécifiée */
-            overflow: hidden; /* Assure que le texte est masqué au début */
-            white-space: nowrap; /* Empêche le texte de passer à la ligne suivante */
-            margin: 0 auto; /* Centre le texte */
-            letter-spacing: .15em; /* Espacement entre les lettres */
+            font-family: 'Instrumentsans', sans-serif;
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .15em;
         }
         .image-container {
-            margin: 30px auto 0; /* Marge de 30px en haut pour séparer l'image du reste du contenu */
-            width: 80px; /* Largeur fixe du logo */
-            height: 80px; /* Hauteur fixe du logo */
+            margin: 30px auto 0;
+            width: 80px;
+            height: 80px;
             display: flex;
-            justify-content: center; /* Centre l'image horizontalement */
-            align-items: center; /* Centre l'image verticalement */
+            justify-content: center;
+            align-items: center;
         }
         .image-container img {
-            width: 100%; /* L'image prend toute la largeur du conteneur */
-            height: 100%; /* L'image prend toute la hauteur du conteneur */
-            object-fit: cover; /* Conserve les proportions de l'image sans la déformer */
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
-
-        /* CSS pour le soulignement */
         .underline-container {
-            display: inline-block; /* Le conteneur ajuste sa largeur en fonction du contenu */
+            display: inline-block;
             position: relative;
-            margin-top: 20px; /* Marge supérieure pour espacer du titre */
+            margin-top: 20px;
         }
-
         .underline-container .word {
             font-size: 24px;
-            margin: 0; /* Élimine la marge par défaut */
+            margin: 0;
             position: relative;
-            display: inline; /* Assure que la largeur du conteneur s'adapte au texte */
+            display: inline;
         }
-
         .underline-container .underline,
         .underline-container .underline-mirror {
             position: absolute;
@@ -74,21 +67,18 @@
             height: 3px;
             background-color: #000;
             width: 100%;
-            transform: scaleX(0); /* Commence avec une échelle de 0 */
-            transform-origin: left; /* Animation commence depuis la gauche */
+            transform: scaleX(0);
+            transform-origin: left;
         }
-
         .underline-container .underline {
             background-color: #000;
             animation: underlineAnimate 2s forwards;
         }
-
         .underline-container .underline-mirror {
-            background-color: #888; /* Couleur grise */
+            background-color: #888;
             animation: underlineMirror 2s forwards;
-            z-index: -1; /* Assure que la ligne miroir est en arrière-plan */
+            z-index: -1;
         }
-
         @keyframes underlineAnimate {
             0% {
                 transform: scaleX(0);
@@ -97,7 +87,6 @@
                 transform: scaleX(1);
             }
         }
-
         @keyframes underlineMirror {
             0% {
                 transform: scaleX(0);
@@ -112,61 +101,149 @@
                 opacity: 1;
             }
         }
+        .button-container {
+            margin: 20px auto;
+        }
+        .custom-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+            background-size: 600% 600%;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s, transform 0.2s;
+            animation: rainbow 5s linear infinite;
+        }
+        .custom-button:hover {
+            background-color: #005f8d;
+            transform: scale(1.05);
+        }
+        .custom-button:active {
+            background-color: #004a6b;
+            transform: scale(0.95);
+        }
+        @keyframes rainbow {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+        .status-container {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .status-icon {
+            width: 24px;
+            height: 24px;
+            margin-left: 10px;
+            font-size: 24px; /* Icon size */
+        }
+        .status-icon.hidden {
+            display: none;
+        }
+        .status-icon.success {
+            color: green;
+        }
+        .status-icon.error {
+            color: red;
+        }
     </style>
 </head>
 <body>
     <h2>Arekushisu</h2>
 
-    <!-- Effet de soulignement ajouté ici -->
     <div class="underline-container">
-        <div class="word">Nom Souligné</div>
+        <div class="word">Single Portrait</div>
         <div class="underline-mirror"></div>
         <div class="underline"></div>
     </div>
 
+    <div class="button-container">
+        <button class="custom-button" id="colored-version-button">Add Colored Version + $50</button>
+    </div>
+
+    <!-- Status text moved here -->
+    <div class="status-container">
+        <span id="status-message">Colored Version: Not Selected</span>
+        <span id="status-icon-success" class="status-icon hidden">&#10060;</span> <!-- Error icon -->
+        <span id="status-icon-error" class="status-icon hidden">&#10004;</span> <!-- Success icon -->
+    </div>
+
     <div id="paypal-button-container"></div>
 
-    <!-- Image ajoutée ici -->
     <div class="image-container">
         <img src="arekushisu.jpg" alt="Logo">
     </div>
 
     <script>
-        // Configuration des boutons PayPal
-        paypal.Buttons({
-            createOrder: function(data, actions) {
-                return actions.order.create({
-                    purchase_units: [{
-                        amount: {
-                            value: '35.00' // Montant en dollars
-                        }
-                    }]
-                });
-            },
-            onApprove: function(data, actions) {
-                return actions.order.capture().then(function(details) {
-                    alert('Transaction effectuée avec succès par ' + details.payer.name.given_name);
-                });
+        let baseAmount = 150.00; // Initial amount
+        let amount = baseAmount; // Amount to display
+
+        // Function to set up PayPal buttons
+        function setupPayPalButtons() {
+            paypal.Buttons({
+                createOrder: function(data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: {
+                                value: amount.toFixed(2) // Use the updated amount
+                            }
+                        }]
+                    });
+                },
+                onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(details) {
+                        console.log('Transaction completed successfully by ' + details.payer.name.given_name);
+                    });
+                }
+            }).render('#paypal-button-container');
+        }
+
+        // Initialize PayPal buttons
+        setupPayPalButtons();
+
+        // Add event for the "Colored Version" button
+        document.getElementById('colored-version-button').addEventListener('click', function() {
+            const successIcon = document.getElementById('status-icon-success');
+            const errorIcon = document.getElementById('status-icon-error');
+            const statusMessage = document.getElementById('status-message');
+
+            if (amount === baseAmount) {
+                amount = baseAmount + 50.00; // Add $50
+                successIcon.classList.add('hidden');
+                errorIcon.classList.remove('hidden');
+                statusMessage.textContent = 'Colored Version: Colored Version Added';
+            } else {
+                amount = baseAmount; // Reset to base amount
+                successIcon.classList.remove('hidden');
+                errorIcon.classList.add('hidden');
+                statusMessage.textContent = 'Colored Version: Not Selected';
             }
-        }).render('#paypal-button-container');
-    </script>
+            
+            // Re-render PayPal buttons to reflect updated amount
+            document.getElementById('paypal-button-container').innerHTML = ''; // Clear the container
+            setupPayPalButtons(); // Reinitialize PayPal buttons
+        });
 
-    <script>
-        // Typing effect script integrated here
+        // Typewriter effect
         document.addEventListener("DOMContentLoaded", function() {
-            console.log('Script chargé'); // Vérifier si le script est chargé
-
             const textElement = document.querySelector('h2');
             if (!textElement) {
-                console.error('Aucun élément <h2> trouvé.');
+                console.error('No <h2> element found.');
                 return;
             }
 
             const text = textElement.textContent;
-            textElement.textContent = ''; // Effacer le contenu du texte pour commencer l'effet de machine à écrire
+            textElement.textContent = ''; // Clear the text to start the typewriter effect
 
             let index = 0;
-            const typingSpeed = 100; // Vitesse de la frappe en millisecondes, accélérée
+            const typingSpeed = 100; // Typing speed in milliseconds
 
             function typeWriter() {
                 if (index < text.length) {
@@ -176,7 +253,7 @@
                 }
             }
 
-            typeWriter(); // Démarrer l'effet de machine à écrire
+            typeWriter(); // Start the typewriter effect
         });
     </script>
 </body>
