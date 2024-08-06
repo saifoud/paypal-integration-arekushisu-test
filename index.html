@@ -30,7 +30,7 @@
             box-sizing: border-box; /* Inclut les bordures et le padding dans la largeur totale */
         }
         h2 {
-            margin-bottom: 30px; /* Marge inférieure de 30px pour séparer le texte des boutons */
+            margin-bottom: 20px; /* Marge inférieure de 20px pour séparer le texte souligné du titre */
             color: #333;
             font-family: 'Instrumentsans', sans-serif; /* Utiliser la police spécifiée */
             overflow: hidden; /* Assure que le texte est masqué au début */
@@ -51,15 +51,84 @@
             height: 100%; /* L'image prend toute la hauteur du conteneur */
             object-fit: cover; /* Conserve les proportions de l'image sans la déformer */
         }
+
+        /* CSS pour le soulignement */
+        .underline-container {
+            display: inline-block; /* Le conteneur ajuste sa largeur en fonction du contenu */
+            position: relative;
+            margin-top: 20px; /* Marge supérieure pour espacer du titre */
+        }
+
+        .underline-container .word {
+            font-size: 24px;
+            margin: 0; /* Élimine la marge par défaut */
+            position: relative;
+            display: inline; /* Assure que la largeur du conteneur s'adapte au texte */
+        }
+
+        .underline-container .underline,
+        .underline-container .underline-mirror {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            background-color: #000;
+            width: 100%;
+            transform: scaleX(0); /* Commence avec une échelle de 0 */
+            transform-origin: left; /* Animation commence depuis la gauche */
+        }
+
+        .underline-container .underline {
+            background-color: #000;
+            animation: underlineAnimate 2s forwards;
+        }
+
+        .underline-container .underline-mirror {
+            background-color: #888; /* Couleur grise */
+            animation: underlineMirror 2s forwards;
+            z-index: -1; /* Assure que la ligne miroir est en arrière-plan */
+        }
+
+        @keyframes underlineAnimate {
+            0% {
+                transform: scaleX(0);
+            }
+            100% {
+                transform: scaleX(1);
+            }
+        }
+
+        @keyframes underlineMirror {
+            0% {
+                transform: scaleX(0);
+                opacity: 1;
+            }
+            50% {
+                transform: scaleX(1);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scaleX(1);
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 <body>
     <h2>Arekushisu</h2>
+
+    <!-- Effet de soulignement ajouté ici -->
+    <div class="underline-container">
+        <div class="word">Nom Souligné</div>
+        <div class="underline-mirror"></div>
+        <div class="underline"></div>
+    </div>
+
     <div id="paypal-button-container"></div>
 
     <!-- Image ajoutée ici -->
     <div class="image-container">
-        <img src="arekushisu.jpg" alt="Logo ">
+        <img src="arekushisu.jpg" alt="Logo">
     </div>
 
     <script>
