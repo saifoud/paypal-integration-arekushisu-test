@@ -13,13 +13,13 @@
             font-family: Arial, sans-serif;
             background-color: #ffffff;
             text-align: center;
-            overflow: hidden; /* Hide scrollbars during animation */
+            overflow: auto; /* Permet le défilement si le contenu dépasse la hauteur de l'écran */
         }
         #title-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh; /* Assure que le conteneur prend au moins la hauteur de l'écran */
         }
         h2 {
             margin-bottom: 20px;
@@ -31,10 +31,11 @@
             animation: zoomIn 2s ease forwards;
         }
         #content-container {
-            display: none; /* Initially hidden until the zoom-out */
+            display: none; /* Initialement caché jusqu'à l'animation */
             opacity: 0;
             transition: opacity 1s ease, transform 1s ease;
             transform: scale(0.8);
+            margin: 20px 0; /* Ajouter une marge en haut et en bas */
         }
         @keyframes zoomIn {
             0% {
@@ -306,6 +307,7 @@
             titleContainer.addEventListener('animationend', function() {
                 contentContainer.classList.add('show');
                 titleContainer.style.display = 'none'; // Hide the title container after animation
+                document.body.style.overflow = 'auto'; // Ensure overflow is set to auto to enable scrolling if needed
             });
         });
     </script>
