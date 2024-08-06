@@ -13,6 +13,50 @@
             font-family: Arial, sans-serif;
             background-color: #ffffff;
             text-align: center;
+            overflow: hidden; /* Hide scrollbars during animation */
+        }
+        #title-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+            font-family: 'Instrumentsans', sans-serif;
+            letter-spacing: .15em;
+            font-size: 60px;
+            transform: scale(0);
+            animation: zoomIn 2s ease forwards;
+        }
+        #content-container {
+            display: none; /* Initially hidden until the zoom-out */
+            opacity: 0;
+            transition: opacity 1s ease, transform 1s ease;
+            transform: scale(0.8);
+        }
+        @keyframes zoomIn {
+            0% {
+                transform: scale(0);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        @keyframes zoomOut {
+            0% {
+                transform: scale(1.2);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        #content-container.show {
+            display: block;
+            animation: zoomOut 1s ease forwards;
         }
         #paypal-button-container {
             background-color: #fff;
@@ -25,15 +69,6 @@
             max-width: 90vw;
             width: 100%;
             box-sizing: border-box;
-        }
-        h2 {
-            margin-bottom: 20px;
-            color: #333;
-            font-family: 'Instrumentsans', sans-serif;
-            overflow: hidden;
-            white-space: nowrap;
-            margin: 0 auto;
-            letter-spacing: .15em;
         }
         .image-container {
             margin: 30px auto 0;
@@ -148,26 +183,30 @@
     </style>
 </head>
 <body>
-    <h2>Arekushisu</h2>
-
-    <div class="price-container" id="price-container">
-        Single Portrait : $<span id="price-amount">150.00</span>
+    <div id="title-container">
+        <h2 id="title">Arekushisu</h2>
     </div>
 
-    <div class="button-container">
-        <button class="custom-button" id="colored-version-button">Colored Version + $50</button>
-    </div>
+    <div id="content-container">
+        <div class="price-container" id="price-container">
+            Single Portrait : $<span id="price-amount">150.00</span>
+        </div>
 
-    <div class="status-container">
-        <span id="status-message">Colored Version: Not Selected</span>
-        <span id="status-icon-success" class="status-icon hidden">&#10060;</span> <!-- Error icon -->
-        <span id="status-icon-error" class="status-icon hidden">&#10004;</span> <!-- Success icon -->
-    </div>
+        <div class="button-container">
+            <button class="custom-button" id="colored-version-button">ADD Color for + $50</button>
+        </div>
 
-    <div id="paypal-button-container"></div>
+        <div class="status-container">
+            <span id="status-message">Colored Version: Not Selected</span>
+            <span id="status-icon-success" class="status-icon hidden">&#10060;</span> <!-- Error icon -->
+            <span id="status-icon-error" class="status-icon hidden">&#10004;</span> <!-- Success icon -->
+        </div>
 
-    <div class="image-container">
-        <img src="arekushisu.jpg" alt="Logo">
+        <div id="paypal-button-container"></div>
+
+        <div class="image-container">
+            <img src="arekushisu.jpg" alt="Logo">
+        </div>
     </div>
 
     <script>
@@ -189,6 +228,8 @@
                 onApprove: function(data, actions) {
                     return actions.order.capture().then(function(details) {
                         console.log('Transaction completed successfully by ' + details.payer.name.given_name);
+                        // Redirect to the desired URL after successful payment
+                        window.location.href = 'https://arekushisus-arts.systeme.io/thanks_single_portrait';
                     });
                 }
             }).render('#paypal-button-container');
@@ -233,29 +274,39 @@
             setupPayPalButtons(); // Reinitialize PayPal buttons
         });
 
-        // Typewriter effect
+        // Typewriter effect and reveal of content
         document.addEventListener("DOMContentLoaded", function() {
-            const textElement = document.querySelector('h2');
-            if (!textElement) {
-                console.error('No <h2> element found.');
-                return;
-            }
+            const title = document.getElementById('title');
+            const contentContainer = document.getElementById('content-container');
+            const titleContainer = document.getElementById('title-container');
 
-            const text = textElement.textContent;
-            textElement.textContent = ''; // Clear the text to start the typewriter effect
+            // Typewriter effect
+            const text = title.textContent;
+            title.textContent = ''; // Clear the text to start the typewriter effect
 
             let index = 0;
             const typingSpeed = 100; // Typing speed in milliseconds
 
             function typeWriter() {
                 if (index < text.length) {
-                    textElement.textContent += text.charAt(index);
+                    title.textContent += text.charAt(index);
                     index++;
                     setTimeout(typeWriter, typingSpeed);
+                } else {
+                    // Delay before starting the zoom-out animation
+                    setTimeout(function() {
+                        titleContainer.classList.add('zoom-out');
+                    }, 500); // Adjust delay as needed
                 }
             }
 
             typeWriter(); // Start the typewriter effect
+
+            // Trigger the zoom-out animation and reveal content
+            titleContainer.addEventListener('animationend', function() {
+                contentContainer.classList.add('show');
+                titleContainer.style.display = 'none'; // Hide the title container after animation
+            });
         });
     </script>
 </body>
