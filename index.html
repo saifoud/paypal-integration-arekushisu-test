@@ -156,6 +156,32 @@
         .status-icon.error {
             color: red;
         }
+        .price-container {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            display: inline-flex;
+            align-items: baseline;
+        }
+        .price-sign {
+            margin-right: 5px;
+        }
+        .price-amount {
+            opacity: 0;
+            transform: translateY(-10px);
+            animation: priceAppear 0.5s ease-out forwards;
+        }
+        @keyframes priceAppear {
+            0% {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 <body>
@@ -171,7 +197,11 @@
         <button class="custom-button" id="colored-version-button">Add Colored Version + $50</button>
     </div>
 
-    <!-- Status text moved here -->
+    <div class="price-container">
+        <span class="price-sign">$</span>
+        <span class="price-amount" id="price-amount">150.00</span>
+    </div>
+
     <div class="status-container">
         <span id="status-message">Colored Version: Not Selected</span>
         <span id="status-icon-success" class="status-icon hidden">&#10060;</span> <!-- Error icon -->
@@ -216,18 +246,26 @@
             const successIcon = document.getElementById('status-icon-success');
             const errorIcon = document.getElementById('status-icon-error');
             const statusMessage = document.getElementById('status-message');
+            const priceAmount = document.getElementById('price-amount');
 
+            // Check if the current amount is the base amount
             if (amount === baseAmount) {
                 amount = baseAmount + 50.00; // Add $50
                 successIcon.classList.add('hidden');
                 errorIcon.classList.remove('hidden');
-                statusMessage.textContent = 'Colored Version: Added';
+                statusMessage.textContent = 'Colored Version: Colored Version Added';
             } else {
                 amount = baseAmount; // Reset to base amount
                 successIcon.classList.remove('hidden');
                 errorIcon.classList.add('hidden');
                 statusMessage.textContent = 'Colored Version: Not Selected';
             }
+
+            // Update the price amount with animation
+            priceAmount.classList.remove('price-amount');
+            void priceAmount.offsetWidth; // Trigger reflow to reset animation
+            priceAmount.textContent = amount.toFixed(2);
+            priceAmount.classList.add('price-amount');
             
             // Re-render PayPal buttons to reflect updated amount
             document.getElementById('paypal-button-container').innerHTML = ''; // Clear the container
